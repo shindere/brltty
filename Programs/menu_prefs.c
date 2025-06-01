@@ -456,6 +456,12 @@ changedSkipIdenticalLines (const MenuItem *item, unsigned char setting UNUSED) {
 }
 
 static int
+changedSkipBlankWindows (const MenuItem *item, unsigned char setting UNUSED) {
+  api.updateParameter(BRLAPI_PARAM_SKIP_BLANK_WINDOWS, 0);
+  return 1;
+}
+
+static int
 changedTextTable (const MenuItem *item, unsigned char setting UNUSED) {
   return changeTextTable(getMenuItemValue(item));
 }
@@ -861,6 +867,7 @@ makePreferencesMenu (void) {
     {
       NAME(strtext("Skip Blank Braille Windows"));
       ITEM(newBooleanMenuItem(navigationSubmenu, &prefs.skipBlankBrailleWindows, &itemName));
+      CHANGED(SkipBlankWindows);
     }
 
     {

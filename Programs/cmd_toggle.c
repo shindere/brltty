@@ -131,6 +131,7 @@ handleToggleCommands (int command, void *data) {
 
     case BRL_CMD_SKPBLNKWINS:
       togglePreferenceSetting(&prefs.skipBlankBrailleWindows, command);
+      api.updateParameter(BRLAPI_PARAM_SKIP_BLANK_WINDOWS, 0);
       break;
 
     case BRL_CMD_SLIDEWIN:

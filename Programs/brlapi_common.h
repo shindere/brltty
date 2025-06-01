@@ -740,6 +740,13 @@ static const brlapi_param_properties_t brlapi_param_properties[BRLAPI_PARAM_COUN
     .canWrite = 1,
   },
 
+  [BRLAPI_PARAM_SKIP_BLANK_WINDOWS] = {
+    .type = BRLAPI_PARAM_TYPE_BOOLEAN,
+    .canRead = 1,
+    .canWatch = 1,
+    .canWrite = 1,
+  },
+
   [BRLAPI_PARAM_AUDIBLE_ALERTS] = {
     .type = BRLAPI_PARAM_TYPE_BOOLEAN,
     .canRead = 1,

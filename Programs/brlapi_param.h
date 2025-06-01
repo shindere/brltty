@@ -63,6 +63,7 @@ typedef enum {
 
 //Navigation Parameters
   BRLAPI_PARAM_SKIP_IDENTICAL_LINES = 17,	/**< Whether to skip identical screen lines: boolean */
+  BRLAPI_PARAM_SKIP_BLANK_WINDOWS = 33,	        /**< Whether to skip blank braille windows: boolean */
   BRLAPI_PARAM_AUDIBLE_ALERTS = 18,		/**< Whether to use audible alerts: boolean */
 
 //Clipboard Parameters
@@ -104,7 +105,7 @@ typedef enum {
 
  /* TODO: help strings */
 
-  BRLAPI_PARAM_COUNT = 33 /** Number of parameters */
+  BRLAPI_PARAM_COUNT = 34 /** Number of parameters */
 } brlapi_param_t;
 
 /* brlapi_param_subparam_t */
@@ -202,6 +203,10 @@ typedef uint8_t *brlapi_param_renderedCells_t;
 /* brlapi_param_skipIdenticalLines_t */
 /** Type to be used for BRLAPI_PARAM_SKIP_IDENTICAL_LINES */
 typedef brlapi_param_bool_t brlapi_param_skipIdenticalLines_t;
+
+/* brlapi_param_skipBlankWindows_t */
+/** Type to be used for BRLAPI_PARAM_SKIP_BLANK_WINDOWS */
+typedef brlapi_param_bool_t brlapi_param_skipBlankWindows_t;
 
 /* brlapi_param_audibleAlerts_t */
 /** Type to be used for BRLAPI_PARAM_AUDIBLE_ALERTS */

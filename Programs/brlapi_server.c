@@ -1853,6 +1853,24 @@ PARAM_WRITER(skipIdenticalLines)
   return NULL;
 }
 
+/* BRLAPI_PARAM_SKIP_BLANK_WINDOWS */
+PARAM_READER(skipBlankWindows)
+{
+  brlapi_param_skipBlankWindows_t *skipBlankWindows = data;
+  *size = sizeof(*skipBlankWindows);
+  *skipBlankWindows = !!prefs.skipBlankBrailleWindows;
+  return NULL;
+}
+
+PARAM_WRITER(skipBlankWindows)
+{
+  const brlapi_param_skipBlankWindows_t *skipBlankWindows = data;
+  PARAM_ASSERT_SIZE(skipBlankWindows);
+  prefs.skipBlankBrailleWindows = !!*skipBlankWindows;
+  api_updateParameter(BRLAPI_PARAM_SKIP_BLANK_WINDOWS, 0);
+  return NULL;
+}
+
 /* BRLAPI_PARAM_AUDIBLE_ALERTS */
 PARAM_READER(audibleAlerts)
 {
@@ -2279,6 +2297,12 @@ static const ParamDispatch paramDispatch[BRLAPI_PARAM_COUNT] = {
     .global = 1,
     .read = param_skipIdenticalLines_read,
     .write = param_skipIdenticalLines_write,
+  },
+
+  [BRLAPI_PARAM_SKIP_BLANK_WINDOWS] = {
+    .global = 1,
+    .read = param_skipBlankWindows_read,
+    .write = param_skipBlankWindows_write,
   },
 
   [BRLAPI_PARAM_AUDIBLE_ALERTS] = {
